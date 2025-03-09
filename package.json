@@ -40,8 +40,9 @@
   "contributes": { 
         "chatParticipants": [
           {
-            "id": "jira",
+            "id": "chat-kjh-jira",
             "fullName": "Jira",
+            "name": "jira",
             "commands": [
               {
                 "name": "fetchIssue",

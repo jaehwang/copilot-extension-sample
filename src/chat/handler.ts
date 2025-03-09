@@ -7,6 +7,7 @@ export function registerJiraParticipant(context: vscode.ExtensionContext) {
    
     const handler: vscode.ChatRequestHandler = async (request, context, stream, token) => {
         if (request.command === 'fetchIssues') {
+            stream.progress('Fetching issues...');
             const projectKey: string = request.prompt
             try {
                 const issues = await fetchIssues(projectKey);
@@ -20,5 +21,5 @@ export function registerJiraParticipant(context: vscode.ExtensionContext) {
         }
     };
 
-    vscode.chat.createChatParticipant('Jira', handler);
+    vscode.chat.createChatParticipant('chat-kjh-jira', handler);
 };
