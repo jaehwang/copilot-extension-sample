@@ -1,18 +1,12 @@
 import * as vscode from 'vscode';
-import { registerChatCommands } from './chat/commands';
-import { setupJiraIntegration } from './jira/api';
+import { registerJiraParticipant } from './chat/handler';
 import { logInfo } from './utils/logger';
 
 export function activate(context: vscode.ExtensionContext) {
     logInfo('Activating Jira GitHub Copilot Chat Extension');
 
-    // Set up Jira integration
-    setupJiraIntegration();
-
-    // Register chat commands
-    registerChatCommands(context);
-
     // Add any additional event listeners or setup here
+    registerJiraParticipant(context);
 }
 
 export function deactivate() {
