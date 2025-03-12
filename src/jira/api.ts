@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Issue, Project } from './types';
+import { Issue } from './types';
 
 const JIRA_BASE_URL = 'https://your-jira-instance.atlassian.net/rest/api/2';
 
@@ -22,24 +22,6 @@ export const fetchIssues = async (projectKey: string): Promise<Issue[]> => {
         throw error;
     }
 };
-
-// Function to create a new issue in Jira
-export const createIssue = async (issueData: Issue): Promise<Issue> => {
-    try {
-        const response = await axios.post(`${JIRA_BASE_URL}/issue`, issueData, {
-            headers: {
-                'Authorization': `Basic ${Buffer.from('your-email:your-api-token').toString('base64')}`,
-                'Content-Type': 'application/json'
-            }
-        });
-        return response.data;
-    } catch (error) {
-        console.error('Error creating issue:', error);
-        throw error;
-    }
-};
-
-// existing code in api.ts
 
 export function setupJiraIntegration() {
     // implementation of setupJiraIntegration
