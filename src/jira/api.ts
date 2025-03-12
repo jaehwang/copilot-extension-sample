@@ -23,6 +23,21 @@ export const fetchIssues = async (projectKey: string): Promise<Issue[]> => {
     }
 };
 
+export const fetchIssue = async (projectKey: string): Promise<Issue> => {
+    const result = await axios.get(`${JIRA_BASE_URL}/rest/api/2/issue/${projectKey}`, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            auth: {
+                username: 'your-id',
+                password: 'your-password'
+            }
+        }
+    )
+    return result.data;
+}
+
 export function setupJiraIntegration() {
     // implementation of setupJiraIntegration
     // 로그인 정보를 사용자로부터 받자.

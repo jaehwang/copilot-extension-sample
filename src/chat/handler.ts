@@ -1,16 +1,16 @@
 import * as vscode from 'vscode';
-import { fetchIssues } from '../jira/api';
+import { fetchIssue } from '../jira/api';
 import { Issue } from '../jira/types';
 
 export function registerJiraParticipant(context: vscode.ExtensionContext) {
    
     const handler: vscode.ChatRequestHandler = async (request, context, stream, token) => {
-        if (request.command === 'fetchIssues') {
+        if (request.command === 'fetchIssue') {
             stream.progress('Fetching issues...');
             const projectKey: string = request.prompt
             try {
-                const issues = await fetchIssues(projectKey);
-                stream.progress(issues.length > 0 ? `Fetched ${issues.length} issues.` : 'No issues found.');
+                const issue:Issue = await fetchIssue(projectKey);
+                stream.progress(issue.fields.summary);
             } catch (error) {
                 stream.progress('Failed to fetch issues.' );
             }
