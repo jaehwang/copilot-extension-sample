@@ -25,7 +25,7 @@ function getJiraCredentials(): { username: string, password: string } {
     return { username, password };
 }
 
-export const fetchIssue = async (s: string): Promise<Issue> => {
+export const fetchIssue = async (prompt: string): Promise<Issue> => {
     const baseUrl = getJiraBaseUrl();
     const { username, password } = getJiraCredentials();
 
