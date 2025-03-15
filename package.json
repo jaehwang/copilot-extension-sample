@@ -57,7 +57,7 @@
             "jiraGithubCopilotChat.jiraBaseUrl": {
               "type": "string",
               "default": "",
-              "description": "Base URL for your Jira instance (e.g., https://your-company.atlassian.net)"
+              "description": "Base URL for your Jira instance (e.g., http://vlm.lge.com/issue)"
             },
             "jiraGithubCopilotChat.username": {
               "type": "string",
@@ -65,7 +65,7 @@
               "description": "Username for Jira authentication"
             },
             "jiraGithubCopilotChat.password": {
-              "type": "string",
+              "type": "password",
               "default": "",
               "description": "API token or password for Jira authentication"
             }
