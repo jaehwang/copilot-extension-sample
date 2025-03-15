@@ -50,6 +50,26 @@
               }
             ]
           }
-        ]
+        ],
+        "configuration": {
+          "title": "Jira GitHub Copilot Chat",
+          "properties": {
+            "jiraGithubCopilotChat.jiraBaseUrl": {
+              "type": "string",
+              "default": "",
+              "description": "Base URL for your Jira instance (e.g., https://your-company.atlassian.net)"
+            },
+            "jiraGithubCopilotChat.username": {
+              "type": "string",
+              "default": "",
+              "description": "Username for Jira authentication"
+            },
+            "jiraGithubCopilotChat.password": {
+              "type": "string",
+              "default": "",
+              "description": "API token or password for Jira authentication"
+            }
+          }
+        }
     }
 }

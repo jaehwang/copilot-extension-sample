@@ -12,7 +12,7 @@ export function registerJiraParticipant(context: vscode.ExtensionContext) {
                 const issue:Issue = await fetchIssue(projectKey);
                 stream.progress(issue.fields.summary);
             } catch (error) {
-                stream.progress('Failed to fetch issues.' );
+                stream.progress('Failed to fetch issues:'+error);
             }
             
         } else {
