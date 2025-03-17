@@ -40,7 +40,7 @@ export const fetchIssue = async (prompt: string): Promise<Issue> => {
 
     vscode.window.setStatusBarMessage(`Fetching Jira issue ${issueKey}...`, 2000);
     
-    const result = await axios.get(`${baseUrl}/rest/api/2/issue/${issueKey}`, {
+    const result = await axios.get(`${baseUrl}/rest/api/2/issue/${issueKey}?fields=summary,description,assigneer,reporter`, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
